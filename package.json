@@ -1,0 +1,23 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "description": "Adv Dyn Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChihchingKo/chatroom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChihchingKo/chatroom/issues"
+  },
+  "homepage": "https://github.com/ChihchingKo/chatroom#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
