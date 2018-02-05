@@ -4,7 +4,7 @@ const app = express();
 var port = process.env.PORT || 3000;
 
 app.get("/", (req, resp)=>{
-    resp.end("HI WELCOME TO MY HEROKU.");
+    resp.end("HI WELCOME TO MY HEROKU. bye");
 })
 
 app.listen(port,(err)=>{
