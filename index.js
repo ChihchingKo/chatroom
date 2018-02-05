@@ -1,16 +1,35 @@
-const express = require("express");
-const app = express();
+const server = require("http").Server();
+const port = 10001;
 
-var port = process.env.PORT || 3000;
+var io = require("socket.io")(server);
+var usernames =[];
+var msgs =[];
+io.on("connection", function(socket){
+    console.log("User is connected");
+    
+    socket.on("username",function(data){
+        console.log("user is giving a username:" + data);
+        usernames.push(data);
+        
+        io.emit("usersJoined",usernames);
+        
+    })
+    socket.on("sendChat",function(data){
+        console.log("user send msg");
+        msgs.push(data);
+        io.emit("mdsgent", msgs);
+        
+    })
+    
+    socket.on("disconnect",function(){
+        console.log("user has disconnected");
+    })
+});
 
-app.get("/", (req, resp)=>{
-    resp.end("HI WELCOME TO MY HEROKU. bye");
-})
-
-app.listen(port,(err)=>{
+server.listen(port, (err)=>{
     if(err){
-        console.log(err);
+        console.log("Error: "+err);
         return false;
     }
-    console.log("port is running");
-})
+    console.log("Socket port is running");
+});
