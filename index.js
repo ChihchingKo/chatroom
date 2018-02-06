@@ -4,7 +4,7 @@ const app = express();
 var port = process.env.PORT || 3000;
 
 app.get("/", (req, resp)=>{
-    resp.end("./webapp/src/app.js");
+    resp.end("./webapp/src/App.js");
 })
 
 app.listen(port,(err)=>{
